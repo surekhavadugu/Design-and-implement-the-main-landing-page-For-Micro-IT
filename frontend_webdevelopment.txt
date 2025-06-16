@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MITS - Micro Information Technology Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    #scrollTopBtn { display: none; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-6 shadow-lg">
+    <div class="container mx-auto px-6">
+      <h1 class="text-4xl font-bold">Micro Information Technology Services (MITS)</h1>
+      <p class="text-lg mt-2">Empowering students with real-world tech experiences</p>
+    </div>
+  </header>
+
+  <!-- Mission Section -->
+  <section class="py-10 bg-white" id="mission">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-semibold mb-4">Our Mission</h2>
+      <p class="text-lg max-w-3xl mx-auto">
+        MITS bridges the gap between academia and industry by providing top-tier IT training and internship opportunities
+        for university students across the country.
+      </p>
+    </div>
+  </section>
+
+  <!-- University Logos Section -->
+  <section class="py-10 bg-gray-100" id="universities">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-8">Our University Affiliations</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
+        <img src="https://as1.ftcdn.net/v2/jpg/04/91/76/62/1000_F_491766294_h4j7LbW2YgfbNHhq7F8GboIc1XyBSEY5.jpg" alt="University 1" class="w-24 h-24 object-cover rounded shadow"/>
+        <img src="https://i.pinimg.com/736x/53/4c/38/534c38e94dc41f8f4ed6183ca2233ace.jpg" alt="University 2" class="w-24 h-24 object-cover rounded shadow"/>
+        <img src="https://images.seeklogo.com/logo-png/51/1/iit-ism-dhanbad-logo-png_seeklogo-519550.png" alt="IIT Dhanbad" class="w-24 h-24 object-contain rounded shadow"/>
+        <img src="https://alumni.iitism.ac.in/centenary/emerald.png" alt="IIT ISM Emerald" class="w-24 h-24 object-contain rounded shadow"/>
+        <img src="https://ismaana.org/wp-content/uploads/2023/08/celebration2.jpg" alt="Celebration" class="w-24 h-24 object-cover rounded shadow"/>
+        <img src="https://www.kindpng.com/picc/m/193-1932012_iit-kharagpur-logo-hd-png-download.png" alt="IIT Kharagpur" class="w-24 h-24 object-contain rounded shadow"/>
+        <img src="https://www.iitbhu.ac.in/contents/iitbhu/img/other/iit_emblem_original.jpg" alt="IIT BHU" class="w-24 h-24 object-contain rounded shadow"/>
+        <img src="https://www.careerguide.com/career/wp-content/uploads/2023/04/iit-delhi-logo.png" alt="IIT Delhi Alt" class="w-24 h-24 object-contain rounded shadow"/>
+        <img src="https://www.pngitem.com/pimgs/m/64-640653_iit-logo-iit-delhi-logo-hd-png-download.png" alt="IIT Delhi" class="w-24 h-24 object-contain rounded shadow"/>
+        <img src="https://cdn.wallpapersafari.com/36/46/AUIP1w.jpg" alt="University 10" class="w-24 h-24 object-cover rounded shadow"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Stats -->
+  <section class="py-10 bg-white" id="stats">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-8">Our Social Reach</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div class="bg-blue-100 p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Instagram Followers</h3>
+          <p id="insta" class="text-2xl font-bold">0</p>
+        </div>
+        <div class="bg-green-100 p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">LinkedIn Connections</h3>
+          <p id="linkedin" class="text-2xl font-bold">0</p>
+        </div>
+        <div class="bg-purple-100 p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Global Network</h3>
+          <p id="network" class="text-2xl font-bold">0</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 z-50">
+    ↑
+  </button>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6 mt-10">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; 2025 Micro Information Technology Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Show/hide scroll button
+    window.onscroll = function () {
+      const btn = document.getElementById("scrollTopBtn");
+      btn.style.display = (window.scrollY > 300) ? "block" : "none";
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Counter animation
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      const range = end - start;
+      const stepTime = Math.abs(Math.floor(duration / range));
+      let current = start;
+      const timer = setInterval(() => {
+        current += (end > start) ? 1 : -1;
+        obj.textContent = current.toLocaleString() + (id === "network" ? " Countries" : "+");
+        if (current == end) clearInterval(timer);
+      }, stepTime);
+    }
+
+    window.onload = () => {
+      animateValue("insta", 0, 15000, 2000);
+      animateValue("linkedin", 0, 10000, 2000);
+      animateValue("network", 0, 25, 1500);
+    };
+  </script>
+
+</body>
+</html>
